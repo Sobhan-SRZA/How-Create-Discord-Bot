@@ -2,7 +2,7 @@
 - EN
 Hi my tiny friends😜(just kidding)
 in this 
-[Learn JS With English Language](https://github.com/Sobhan-SRZA/How-Create-Discord-Bot/Help-Readme/README(en).md)   
+[Learn JS With English Language](https://github.com/Sobhan-SRZA/How-Create-Discord-Bot/blob/main/Help-Readme/README(en).md)   
 
 - PER
 سلام دوستان عزیز🤗
@@ -25,4 +25,4 @@ in this
 * دولوپر مود دیسکوردتون رو هم روشن کنید که بتونید ایدی هایی که نیاز دارید رو کپی کنید
   <img src="https://cdn.discordapp.com/attachments/826890223916154903/875052912227786822/dev-m.gif" width="510" height="290"/>
 
-[Learn JS With Persian Language](https://github.com/Sobhan-SRZA/How-Create-Discord-Bot/Help-Readme/README(per).md)   
+[Learn JS With Persian Language](https://github.com/Sobhan-SRZA/How-Create-Discord-Bot/blob/main/Help-Readme/README(per).md)   
