@@ -1,74 +1,28 @@
-# How-Create-Discord-Bot
-ez
+## How-Create-Discord-Bot
+- EN
+Hi my tiny friends😜(just kidding)
+in this 
+[Learn JS With English Language](https://github.com/Sobhan-SRZA/How-Create-Discord-Bot/Help-Readme/README(en).md)   
 
-# Command Handelr
-```js
-//===========================================================================================================//
-//consol
-const fs = require('fs');
-const Discord = require('discord.js');
-const client = new Discord.Client({ disableMentions: 'everyone' });  
-const prefix = "BOT_PREFIX";
-client.commands = new Discord.Collection();
-client.login("BOT_TOKEN");
+- PER
+سلام دوستان عزیز🤗
+در این وبلاگ قراره یاد بگیریم که چگونه ربات دیسکورد بسازیم🤖.
+از اولین راه های یادگیری داشتن یک معلم خوب هستش (که من مخلصتون هم هستم😉) دومین راه یادگیری داشتن تمرین و تکرار هستش عزیزان
+اگه تمرین داشته باشین و تو کارتون جدی باشین بهتون قول میدم عین من استاد اینکار میشین (حتی بهتر از من)
+تو این فایل بهتون پیش نیاز های یادگیری و کار کردن با پکیج هارو معرفی میکنم و توی لینک زیر به شما آموزش هارو بعد اینکه پیشنیاز هارو نصب کردین یاد میدم😎
+از اونجایی که وقت طلاست سر راست میگم چی میخواین:
+- 📃پیش نیاز ها
+* دونستن مفاهیم پایه جاوا اسکریپت (نمیدونیشون؟ فدای یه تار موت اونارو هم بهت یاد میدم)
+* [Node.js v16+](https://nodejs.org/en/download/releases/)
+* [Visual Studio Code](https://code.visualstudio.com/download) (**یک اپلیکیشن یا همون برنامه ای هست که باهاش میتونیم به هر زبانی توش کد نویسی انجام بدیم فرقی هم نداره از چجور برنامه ای استفاده میکنید مهم اینه که یاد بگیرید حتی به غلط😜. اوکی؟ (VSCODE) وی اس کد یا**)
+* و فراموش نکنید که حتما باید یک اپلیکیشن و ربات در دولوپر پورتال دیسکورد بسازیدسپ (توی لینکی که بهتون گفتم مفصل درباره ساخت ربات حرف زدم نگران نباشین اگه بلد نیستین)
+* https://discord.com/developers/applications
+<img src="https://cdn.discordapp.com/attachments/826890223916154903/875073281605111918/unknown.png" />
 
+* تیک اپلیکیشن کامند رو هم حتما موقع اینوایت بات به سروتون رو از توی دولوپر پورتال حتما بزنید چون نیازش دارید
+<img src="https://cdn.discordapp.com/attachments/826890223916154903/875301636355018822/unknown.png" />
 
-//===========================================================================================================//
-//Loading Commands
-fs.readdirSync('./commands').forEach(dirs => {
-    const commands = fs.readdirSync(`./commands/${dirs}`).filter(files => files.endsWith('.js'));
-    for (const file of commands) {
-        const command = require(`./commands/${dirs}/${file}`);
-        console.log(`Loading command ${file}`);
-        client.commands.set(command.name.toLowerCase(), command);
-    };
-});
+* دولوپر مود دیسکوردتون رو هم روشن کنید که بتونید ایدی هایی که نیاز دارید رو کپی کنید
+  <img src="https://cdn.discordapp.com/attachments/826890223916154903/875052912227786822/dev-m.gif" width="510" height="290"/>
 
-//===========================================================================================================//
-//Events
-const events = fs.readdirSync('./events').filter(file => file.endsWith('.js'));
-for (const file of events) {
-    console.log(`Loading discord.js event ${file}`);
-    const event = require(`./events/${file}`);
-    client.on(file.split(".")[0], event.bind(null, client));
-};
-```
-
-hamino mizari indexet
-badesh
-ye file misazi be esme message.js va toie poshe events mizari
-
-badesh in code ro mizari to file message.js
-```js
-module.exports = async (client, message) => {
-    if (message.author.bot || message.channel.type === 'dm') return;
-
-    const prefix = "BOT_PREFIX";
-
-    if (message.content.indexOf(prefix) !== 0) return;
-
-    const args = message.content.slice(prefix.length).trim().split(/ +/g);
-    const command = args.shift().toLowerCase();
-
-    const cmd = client.commands.get(command) || client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(command));
-
-    if (cmd) cmd.execute(client, message, args);
-};
-```
-bade inke poshe commands ro sakhti tosh har file sakhti akharesh baiad .js dashte bashe
-
-```js
-module.exports = {
-    name: 'ESM-COMMAND',
-    aliases: ['ALIAS-1','ALIAS-2'],
-    category: 'CATEGORY-COMMAND',
-    utilisation: '{prefix}COMMAND-NAME',
-  async execute(client, message, args) { 
- }
-}
-
-```
-az hala bebad jori ke man barat commande handelr neveshtam hamishe baiad avval code haie poshe commands ino toshon dashte bashan
-
-gablan behet yad dadam chetory az command handelr haie bagie baraie khodet estefade koni
-ez
+[Learn JS With Persian Language](https://github.com/Sobhan-SRZA/How-Create-Discord-Bot/Help-Readme/README(per).md)   
