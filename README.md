@@ -13,6 +13,7 @@
  
 <details>
 <summary> وقتی شما واجد پیش نیاز های فوق بودید، براساس زبان برنامه نویسی خود میتوانید آموزش ساخت ربات دیسکورد با ما یاد بگیرید. 📌 </summary>
- - زبان [Javascript](https://github.com/Sobhan-SRZA/How-Create-Discord-Bot/languages/javascript/README.md)
- - زبان [Python](https://github.com/Sobhan-SRZA/How-Create-Discord-Bot/languages/python/README.md)
+ 
+- زبان [Javascript](https://github.com/Sobhan-SRZA/How-Create-Discord-Bot/languages/javascript/README.md)
+- زبان [Python](https://github.com/Sobhan-SRZA/How-Create-Discord-Bot/languages/python/README.md)
 </details>
