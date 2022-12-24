@@ -3,10 +3,10 @@
 Greetings to you dear ones, 
 In this project, we want to teach you how to make a Discord bot professionally in **Javascript** and **Python**. 
 To start your training, you need some prerequisites, which are: 
-- Sufficient knowledge in [Javascript](https://github.com/Sobhan-SRZA/How-Create-Discord-Bot/languages/javascript/README.md) or [Python](https://github.com/ Sobhan-SRZA/How-Create-Discord-Bot/languages/python/README.md) 
-- Having a program for editing codes such as: Notepad, [Visual Studio Code] (https://code.visualstudio.com/download) 
-- Having a Discord account (http://discord.com/login) 
-- Having a [Discord bot application] (http://discord.com/developers/) 
+- Sufficient knowledge in [Javascript](https://github.com/Sobhan-SRZA/How-Create-Discord-Bot/languages/javascript/README.md) or [Python](https://github.com/Sobhan-SRZA/How-Create-Discord-Bot/languages/python/README.md) 
+- Having a program for editing codes such as: Notepad, [Visual Studio Code](https://code.visualstudio.com/download) 
+- Having a [Discord account](http://discord.com/login) 
+- Having a [Discord bot application](http://discord.com/developers/) 
 <details> 
  <summary> When you meet the above prerequisites, you can learn how to make a Discord bot based on your programming language with us. 📌 </summary> 
 
