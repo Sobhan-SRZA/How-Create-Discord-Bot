@@ -16,7 +16,7 @@ To start your training, you need some prerequisites, which are:
 
 ## 🇮🇷| PER
 با سلام و درود بر شما عزیزان،
-در این پروژه برای شما مبخواهیم نحوه ساخت ربات دیسکورد به دو زبان **Javascript** و **Python** را به صورت حرفه ای یاد دهیم.
+در این پروژه برای شما میخواهیم نحوه ساخت ربات دیسکورد به دو زبان **Javascript** و **Python** را به صورت حرفه ای یاد دهیم.
 برای شروع آموزش شما به چند پیش نیاز، احتیاج دارید که عبارت اند از:
 - دانش کافی در زبان [Javascript](https://github.com/Sobhan-SRZA/How-Create-Discord-Bot/tree/main/languages/javascript/per) یا [Python](https://github.com/Sobhan-SRZA/How-Create-Discord-Bot/tree/main/languages/python/per)
 - داشتن یک برنامه برای ادیت کد های مثل: Notepad,  [Visual Studio Code](https://code.visualstudio.com/download)
