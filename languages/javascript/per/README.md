@@ -23,9 +23,7 @@
 شما با کلیک کردن به دکمه آبی رنگی که روی آن نوشته شده "New Application" کلیک کنید تا یک اپ کلیکیشن بسازید، سپس یک باکس برای شما ظاهر میشود و از شما میخواهد که نام ربات یا اپلیکیشن خود را تعیین نمایید.
 شما با نوشتن نام ربات خود گزینه تایید را کلیک میکنید و اپلیکیشن شما ساخته میشود.
 
-<video controls="" autoplay="" name="media">
-  <source src="https://github.com/Sobhan-SRZA/How-Create-Discord-Bot/blob/main/media/How%20create%20app%20on%20discord%20developer.mp4" type="video/mp4">
-</video>
+https://user-images.githubusercontent.com/90289153/224548850-5488587a-68b3-4383-b328-ad04f2d9e91d.mp4
  
 طبق ویدیوی فوق میتوانید به راحتی یک اپلیکیشن بسازید.
 حالا بخش اصلی ماجرا تازه شروع میشود.
