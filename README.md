@@ -1,3 +1,27 @@
+## ⁉ How Create Discord Bot?
+<div align="center">
+    <img src="https://badges.aleen42.com/src/node.svg">
+    <img src="https://badges.aleen42.com/src/python.svg">
+    <img src="https://badges.aleen42.com/src/javascript.svg">
+    <img src="https://img.shields.io/github/v/release/Sobhan-SRZA/How-Create-Discord-Bot?label=Version">
+    <div>
+        <img src="https://img.shields.io/github/license/Sobhan-SRZA/How-Create-Discord-Bot?label=License">
+        <img src="https://img.shields.io/github/last-commit/Sobhan-SRZA/How-Create-Discord-Bot?label=Last Commit">
+        <img src="https://img.shields.io/github/release-date/Sobhan-SRZA/How-Create-Discord-Bot?label=Last Release">
+        <img src="https://img.shields.io/github/downloads/Sobhan-SRZA/How-Create-Discord-Bot/total?label=Downloads">
+    </div>
+    <img src="https://img.shields.io/github/forks/Sobhan-SRZA/How-Create-Discord-Bot?label=Forks">
+    <img src="https://img.shields.io/github/stars/Sobhan-SRZA/How-Create-Discord-Bot?label=Stars">
+    <img src="https://img.shields.io/github/watchers/Sobhan-SRZA/How-Create-Discord-Bot?label=Watchers">
+    <img src="https://img.shields.io/github/languages/code-size/Sobhan-SRZA/How-Create-Discord-Bot?label=Code Size">
+    <img src="https://img.shields.io/github/directory-file-count/Sobhan-SRZA/How-Create-Discord-Bot?label=Files">
+    <div>
+        <img style="display:block;margin-left:auto;margin-right:auto;width:30%;" src="https://github-readme-stats.vercel.app/api/pin/?username=Sobhan-SRZA&repo=How-Create-Discord-Bot&theme=react">
+    </div>
+</div>
+
+---
+
 ## 🇺🇸| EN
 
 Greetings to you dear ones, 
