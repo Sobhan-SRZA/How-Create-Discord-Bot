@@ -5,7 +5,6 @@
     <img src="https://badges.aleen42.com/src/node.svg">
     <img src="https://badges.aleen42.com/src/python.svg">
     <img src="https://badges.aleen42.com/src/javascript.svg">
-    <img src="https://img.shields.io/github/v/release/Sobhan-SRZA/How-Create-Discord-Bot?label=Version">
     <br>
     <img src="https://img.shields.io/github/license/Sobhan-SRZA/How-Create-Discord-Bot?label=License">
     <img src="https://img.shields.io/github/last-commit/Sobhan-SRZA/How-Create-Discord-Bot?label=Last Commit">
