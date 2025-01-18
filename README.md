@@ -9,8 +9,6 @@
     <br>
     <img src="https://img.shields.io/github/license/Sobhan-SRZA/How-Create-Discord-Bot?label=License">
     <img src="https://img.shields.io/github/last-commit/Sobhan-SRZA/How-Create-Discord-Bot?label=Last Commit">
-    <img src="https://img.shields.io/github/release-date/Sobhan-SRZA/How-Create-Discord-Bot?label=Last Release">
-    <img src="https://img.shields.io/github/downloads/Sobhan-SRZA/How-Create-Discord-Bot/total?label=Downloads">
     <img src="https://img.shields.io/github/forks/Sobhan-SRZA/How-Create-Discord-Bot?label=Forks">
     <img src="https://img.shields.io/github/stars/Sobhan-SRZA/How-Create-Discord-Bot?label=Stars">
     <img src="https://img.shields.io/github/watchers/Sobhan-SRZA/How-Create-Discord-Bot?label=Watchers">
