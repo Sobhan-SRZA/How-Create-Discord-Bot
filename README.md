@@ -52,6 +52,22 @@ To start your training, you need some prerequisites, which are:
 - زبان [Python](https://github.com/Sobhan-SRZA/How-Create-Discord-Bot/tree/main/languages/python/per)
 </details>
 
+## 🇫🇷| FR
+
+Bienvenue à tous, 
+Dans ce projet, nous allons vous apprendre à créer votre propre bot discord en **Javascript** et **Python**. 
+Avant ça vous aurez besoin de quelques prérequis: 
+- Les bases en [Javascript](https://github.com/Sobhan-SRZA/How-Create-Discord-Bot/tree/main/languages/javascript/en) ou [Python](https://github.com/Sobhan-SRZA/How-Create-Discord-Bot/tree/main/languages/python/en) 
+- Avoir un IDE tel que : Notepad, [Visual Studio Code](https://code.visualstudio.com/download) 
+- Avoir un [compte discord](http://discord.com/login) 
+- Avoir un [bot Discord](http://discord.com/developers/) 
+<details> 
+ <summary> Lorsque vous possèdez les prérequis, vous êtes prêts à apprendre avec nous. 📌 </summary> 
+
+- Language [Javascript](https://github.com/Sobhan-SRZA/How-Create-Discord-Bot/tree/main/languages/javascript/en) 
+- Language [Python](https://github.com/Sobhan-SRZA/How-Create-Discord-Bot/tree/main/languages/python/en) 
+</details>
+
 
 ---
 
