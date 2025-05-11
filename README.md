@@ -1,4 +1,4 @@
-## ⁉ How Create Discord Bot?
+## ⁉ How to Create a Discord Bot?
 <div align="center">
     <img src="https://github.com/user-attachments/assets/72289fc7-9e5e-4210-8aee-f71791e736e0" width=50%>
     <br>
@@ -19,55 +19,53 @@
 
 ---
 
-## 🇺🇸| EN
+## 🇺🇸 English
 
-Greetings to you dear ones, 
-In this project, we want to teach you how to make a Discord bot professionally in **Javascript** and **Python**. 
-To start your training, you need some prerequisites, which are: 
-- Sufficient knowledge in [Javascript](https://github.com/Sobhan-SRZA/How-Create-Discord-Bot/tree/main/languages/javascript/en) or [Python](https://github.com/Sobhan-SRZA/How-Create-Discord-Bot/tree/main/languages/python/en) 
-- Having a program for editing codes such as: Notepad, [Visual Studio Code](https://code.visualstudio.com/download) 
-- Having a [Discord account](http://discord.com/login) 
-- Having a [Discord bot application](http://discord.com/developers/) 
-<details> 
- <summary> When you meet the above prerequisites, you can learn how to make a Discord bot based on your programming language with us. 📌 </summary> 
+Hello everyone,
 
-- Language [Javascript](https://github.com/Sobhan-SRZA/How-Create-Discord-Bot/tree/main/languages/javascript/en) 
-- Language [Python](https://github.com/Sobhan-SRZA/How-Create-Discord-Bot/tree/main/languages/python/en) 
-</details>
+In this project, we will teach you how to create a Discord bot professionally using **JavaScript** and **Python**.
 
-## 🇮🇷| PER
-با سلام و درود بر شما عزیزان،
-در این پروژه برای شما میخواهیم نحوه ساخت ربات دیسکورد به دو زبان **Javascript** و **Python** را به صورت حرفه ای یاد دهیم.
-برای شروع آموزش شما به چند پیش نیاز، احتیاج دارید که عبارت اند از:
-- دانش کافی در زبان [Javascript](https://github.com/Sobhan-SRZA/How-Create-Discord-Bot/tree/main/languages/javascript/per) یا [Python](https://github.com/Sobhan-SRZA/How-Create-Discord-Bot/tree/main/languages/python/per)
-- داشتن یک برنامه برای ادیت کد های مثل: Notepad,  [Visual Studio Code](https://code.visualstudio.com/download)
-- داشتن [اکانت دیسکورد](http://discord.com/login)
-- داشتن یک [اپلیکیشن ربات دیسکورد](http://discord.com/developers/)
+### Prerequisites
 
- 
+Before you begin, make sure you have:
+
+* Adequate knowledge of [JavaScript](/javascript/en/README.md) or [Python](/python/en/README.md).
+* A code editor such as Notepad or [Visual Studio Code](https://code.visualstudio.com/download).
+* A [Discord account](https://discord.com/login).
+* A [Discord bot application](https://discord.com/developers).
+
 <details>
- <summary> وقتی شما واجد پیش نیاز های فوق بودید، براساس زبان برنامه نویسی خود میتوانید آموزش ساخت ربات دیسکورد با ما یاد بگیرید. 📌 </summary>
- 
-- زبان [Javascript](https://github.com/Sobhan-SRZA/How-Create-Discord-Bot/tree/main/languages/javascript/per)
-- زبان [Python](https://github.com/Sobhan-SRZA/How-Create-Discord-Bot/tree/main/languages/python/per)
+  <summary>Once you have all prerequisites, choose your programming language to start building your Discord bot. 📌</summary>
+
+* [JavaScript](/javascript/en/README.md)
+* [Python](/python/en/README.md)
+
 </details>
 
-## 🇫🇷| FR
+---
 
-Bienvenue à tous, 
-Dans ce projet, nous allons vous apprendre à créer votre propre bot discord en **Javascript** et **Python**. 
-Avant ça vous aurez besoin de quelques prérequis: 
-- Les bases en [Javascript](https://github.com/Sobhan-SRZA/How-Create-Discord-Bot/tree/main/languages/javascript/en) ou [Python](https://github.com/Sobhan-SRZA/How-Create-Discord-Bot/tree/main/languages/python/en) 
-- Avoir un IDE tel que : Notepad, [Visual Studio Code](https://code.visualstudio.com/download) 
-- Avoir un [compte discord](http://discord.com/login) 
-- Avoir un [bot Discord](http://discord.com/developers/) 
-<details> 
- <summary> Lorsque vous possèdez les prérequis, vous êtes prêts à apprendre avec nous. 📌 </summary> 
+## 🇮🇷 فارسی
 
-- Language [Javascript](https://github.com/Sobhan-SRZA/How-Create-Discord-Bot/tree/main/languages/javascript/en) 
-- Language [Python](https://github.com/Sobhan-SRZA/How-Create-Discord-Bot/tree/main/languages/python/en) 
+سلام و درود بر شما عزیزان،
+
+در این پروژه قصد داریم نحوه ساخت ربات دیسکند به‌صورت حرفه‌ای را با **JavaScript** و **Python** به شما آموزش دهیم.
+
+### پیش‌نیازها
+
+برای شروع مطمئن شوید که:
+
+* دانش کافی در [JavaScript](/javascript/per/README.md) یا [Python](/python/en/README.md) دارید.
+* یک ویرایشگر کد مانند Notepad یا [Visual Studio Code](https://code.visualstudio.com/download) نصب‌شده دارید.
+* حساب کاربری [Discord](https://discord.com/login) دارید.
+* یک اپلیکیشن ربات در [سرویس توسعه‌دهندگان Discord](https://discord.com/developers) ساخته‌اید.
+
+<details>
+  <summary>هنگامی که تمام پیش‌نیازها را دارید، زبان برنامه‌نویسی خود را انتخاب کنید و آموزش ساخت ربات دیسکورد را شروع کنید. 📌</summary>
+
+* [JavaScript](/javascript/per/README.md)
+* [Python](/python/per/README.md)
+
 </details>
-
 
 ---
 
