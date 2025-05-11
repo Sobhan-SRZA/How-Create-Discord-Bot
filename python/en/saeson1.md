@@ -1,70 +1,79 @@
-## **Chapter 1: Introduction and Environment Setup**
+## Chapter 1: Introduction and Setting Up Your Environment
 
 ---
 
-### **1.1 Programming and Discord Bots**
+### 1.1 What Is Programming?
 
-* **Programming** is simply writing instructions that a computer executes.
-* **Discord bots** are programs that can operate in Discord servers: managing messages, responding to users, and automating tasks.
-* **Why Python?**
+Programming means writing instructions that a computer can execute to produce a specific output or behavior.
 
-  * It’s clear and readable for beginners.
-  * The powerful `discord.py` library makes bot development straightforward.
+* **Why Discord and Python?**
+
+  * **Discord** is a popular platform for online communities and supports creating automated bots.
+  * **Python** is a simple yet powerful language with excellent libraries—like `discord.py`—for building Discord bots.
 
 ---
 
-### **1.2 Required Tools**
+### 1.2 Required Tools
 
-#### **1.2.1 Installing Python and pip**
+To get started, you’ll need the following:
 
-1. Visit [python.org](https://www.python.org) and download the latest Python release.
-2. During installation, check **Add Python to PATH**.
-3. After installation, open your terminal or Command Prompt and run:
+#### 1.2.1 Installing Python and pip
+
+1. Visit [Python.org](https://www.python.org).
+2. Download and install **Python 3.10 or newer**.
+3. During installation, enable **Add Python to PATH**.
+4. After installation, open your terminal (or CMD) and verify:
 
    ```bash
-   python --version    # Should print something like Python 3.11.4
-   pip --version       # Should show the pip version
+   python --version   # e.g., Python 3.10.6
+   pip --version      # e.g., pip 23.1.2
    ```
 
-#### **1.2.2 Installing `discord.py`**
+#### 1.2.2 Code Editor: VS Code
 
-In your terminal, run:
+* Download and install VS Code from [here](https://code.visualstudio.com).
+* In VS Code’s Extensions panel, install the **Python** extension.
+
+#### 1.2.3 Creating Your Bot on Discord
+
+1. Open the [Discord Developer Portal](https://discord.com/developers/applications).
+2. Click **New Application**, give it a name, and create it.
+3. In the left menu, select **Bot** and click **Add Bot**.
+4. Copy your bot’s **Token** and keep it somewhere safe (e.g., a temporary text file).
+
+![Bot Creation Steps](https://i.imgur.com/3Q6vz9L.png)
+
+---
+
+### 1.3 Installing `discord.py`
+
+In your terminal or CMD, run:
 
 ```bash
 pip install discord.py
 ```
 
-#### **1.2.3 Code Editor**
+#### Difference Between `discord.py` and `nextcord`
 
-* Recommended: **VS Code** ([Download here](https://code.visualstudio.com)).
-* Useful extensions: **Python Extension Pack**, **Pylance**.
+* `nextcord` is a more up-to-date fork of `discord.py` that fixes many issues. To install it instead, run:
 
----
-
-### **1.3 Creating Your Bot in the Discord Developer Portal**
-
-1. Go to the [Discord Developer Portal](https://discord.com/developers/applications).
-2. Click **New Application**, enter a name for your bot.
-3. In the left menu select **Bot**, then click **Add Bot**.
-4. Copy your bot’s **Token** and keep it private (**never share it!**).
-5. Under **OAuth2 → URL Generator**, select the **bot** scope and the permissions your bot needs (e.g., **Send Messages**).
-6. Open the generated URL in your browser to invite the bot to your server.
+  ```bash
+  pip install nextcord
+  ```
 
 ---
 
-### **1.4 Writing Your First Bot**
+### 1.4 Building Your First Bot
 
-#### **Step 1: Create the Python File**
-
-Create a file named `bot.py` and paste:
+Create a file named `bot.py` and paste in this code:
 
 ```python
 import discord
 from discord.ext import commands
 
-# Initial setup
+# Basic settings
 intents = discord.Intents.default()
-intents.message_content = True  # Allow reading message content
+intents.message_content = True  # Enable reading message content
 
 bot = commands.Bot(command_prefix='!', intents=intents)
 
@@ -73,70 +82,57 @@ bot = commands.Bot(command_prefix='!', intents=intents)
 async def on_ready():
     print(f'✅ Bot {bot.user.name} is now online!')
 
-# Simple ping-pong command
+# Simple ping command
 @bot.command()
 async def ping(ctx):
-    await ctx.send('🏓 Pong!')
+    await ctx.reply(f'🏓 Pong! Latency: {round(bot.latency * 1000)}ms')
 
-# Run the bot with your token
+# Run the bot
 bot.run('YOUR_TOKEN_HERE')
 ```
 
-#### **Step 2: Insert Your Token**
+---
 
-Replace `'YOUR_TOKEN_HERE'` with the token you copied from the Developer Portal.
+### 1.5 Testing Your Bot
 
-#### **Step 3: Run the Bot**
+1. Replace `'YOUR_TOKEN_HERE'` with your actual token.
+2. Run the bot:
 
-In the terminal, execute:
-
-```bash
-python bot.py
-```
+   ```bash
+   python bot.py
+   ```
+3. If everything is correct, you’ll see the “online” message in your console.
+4. In Discord, type `!ping` in any server channel to see the bot respond.
 
 ---
 
-### **1.5 Testing Your Bot**
+### Hands-On Exercise for Chapter 1
 
-1. Go to the Discord server where you added the bot.
-2. Type `!ping` in a text channel.
-3. If everything is correct, the bot will reply with `🏓 Pong!`.
-
----
-
-### **Common Issues**
-
-* **Bot doesn’t go online:**
-
-  * Check your token.
-  * Ensure you have an internet connection.
-  * Make sure Intents are enabled in the Developer Portal ([Intents Guide](https://discordpy.readthedocs.io/en/stable/intents.html)).
-* **`ImportError`:**
-
-  * Verify you installed `discord.py` with pip.
+1. Create your own Discord bot and obtain its token.
+2. Run the code above and verify it replies to `!ping`.
+3. Add a new command—e.g., `!hello`—that sends a greeting back to the user.
 
 ---
 
-### **Hands-On Exercise for Chapter 1**
+### Common Issues
 
-1. Create a `!hello` command that replies to the user.
-2. Add a `!time` command that sends the current time.
+* **Bot Doesn’t Go Online**
 
-**Exercise Example:**
+  * Verify your token is correct.
+  * Check your internet connection.
+  * Ensure `discord.py` is properly installed.
+* **Bot Doesn’t Respond to Messages**
 
-```python
-@bot.command()
-async def سلام(ctx):
-    await ctx.send(f'Hello {ctx.author.mention}! How are you?')
-```
-
----
-
-### **Key Notes**
-
-* **Never** hard-code your token in public code (we’ll secure it with `.env` in later chapters).
-* For more advanced commands, leverage the `commands` module from `discord.ext`.
+  * Enable `Intents.message_content`.
+  * Confirm the bot has been invited to your server.
 
 ---
 
-Ready for Chapter 2? Next, we’ll cover Python basics! 🐍
+### Key Tips
+
+* **Never** expose your bot token publicly. (We’ll cover using `.env` files in later chapters.)
+* For more advanced commands and organization, use the `discord.ext.commands` module.
+
+---
+
+**Next Chapter:** Python Basics—variables, conditionals, loops, and functions! 🐍

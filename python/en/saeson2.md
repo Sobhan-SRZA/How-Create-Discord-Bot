@@ -1,49 +1,38 @@
-## Chapter 2: Python Fundamentals
+## Chapter 2: Getting to Know Python Fundamentals
 
 ---
 
 ### 2.1 Variables and Data Types
 
-Variables are like boxes that store data. Each variable has a **name** and a **data type**.
+Variables are like boxes that store data. In Python, you don’t need to declare a type in advance (dynamic typing).
 
-#### Primary Data Types
+#### Common Data Types
 
-* **String**: Text enclosed in `' '` or `" "`
-
-  ```python
-  name = "Alice"
-  message = 'Hello, world!'
-  ```
-
-* **Integer**: Whole numbers without a decimal point
+* **String**
 
   ```python
-  age = 20
-  score = -50
+  name = "Alice"   # Text is enclosed in "" or ''
+  message = 'Hello!'
   ```
-
-* **Float**: Numbers with a decimal point
+* **Integer and Float**
 
   ```python
-  price = 19.99
-  pi = 3.14
+  age = 20         # Integer
+  price = 12.5     # Floating-point number
   ```
-
-* **Boolean**: Only `True` or `False`
+* **Boolean**
 
   ```python
   is_online = True
   has_permission = False
   ```
-
-* **List**: Ordered, mutable collection
+* **List**
 
   ```python
   users = ["Alice", "Bob", "Charlie"]
-  numbers = [1, 2, 3]
+  print(users[0])  # Output: Alice
   ```
-
-* **Dictionary**: Key–value pairs for structured data
+* **Dictionary**
 
   ```python
   user = {
@@ -51,160 +40,152 @@ Variables are like boxes that store data. Each variable has a **name** and a **d
       "age": 25,
       "is_admin": True
   }
+  print(user["name"])  # Output: Alice
   ```
 
 ---
 
-### 2.2 Operators and Control Flow
+### 2.2 Operators
 
-#### Operators
+#### Arithmetic Operators
 
-* **Arithmetic**: `+`, `-`, `*`, `/`, `**` (power)
+```python
+a = 10 + 5    # 15
+b = 20 - 3    # 17
+c = 6 * 2     # 12
+d = 10 / 2    # 5.0   (floating-point division)
+e = 10 // 3   # 3     (integer division)
+f = 10 % 3    # 1     (modulo)
+```
 
-  ```python
-  result = 10 + 5 * 2  # 20
-  ```
+#### Comparison Operators
 
-* **Comparison**: `==`, `!=`, `>`, `<`, `>=`, `<=`
+```python
+print(5 > 3)   # True
+print(5 == 5)  # True
+print(5 != 3)  # True
+```
 
-  ```python
-  print(5 > 3)  # True
-  ```
+#### Logical Operators
 
-* **Logical**: `and`, `or`, `not`
-
-  ```python
-  if age > 18 and has_ticket:
-      print("You may enter!")
-  ```
-
-#### Control Structures
-
-* **`if` / `elif` / `else`**
-
-  ```python
-  hour = 14
-  if hour < 12:
-      print("Good morning!")
-  elif hour < 18:
-      print("Good afternoon!")
-  else:
-      print("Good evening!")
-  ```
-
-* **`for` Loop**
-
-  ```python
-  for user in users:
-      print(f"Hello, {user}!")
-  ```
-
-* **`while` Loop**
-
-  ```python
-  count = 3
-  while count > 0:
-      print(count)
-      count -= 1
-  ```
+```python
+has_account = True
+is_logged_in = False
+print(has_account and is_logged_in)  # False
+print(has_account or is_logged_in)   # True
+print(not has_account)               # False
+```
 
 ---
 
-### 2.3 Functions and Modules
+### 2.3 Control Flow
 
-#### Functions
+#### `if` / `elif` / `else`
 
-* **Defining a function**
+```python
+hour = 14
+if hour < 12:
+    print("Good morning!")
+elif hour < 18:
+    print("Good afternoon!")
+else:
+    print("Good evening!")
+```
+
+#### `for` Loop
+
+```python
+for i in range(5):  # 0 through 4
+    print(i)
+
+for user in ["Alice", "Bob", "Charlie"]:
+    print(f"Hello, {user}!")
+```
+
+#### `while` Loop
+
+```python
+count = 3
+while count > 0:
+    print(count)
+    count -= 1  # Decrement count each iteration
+```
+
+---
+
+### 2.4 Functions
+
+Functions are reusable blocks of code that perform a specific task.
+
+#### Defining a Simple Function
+
+```python
+def greet(name):
+    return f"Hello, {name}!"
+
+print(greet("Alice"))  # Output: Hello, Alice!
+```
+
+#### Default Parameters
+
+```python
+def multiply(a, b=2):
+    return a * b
+
+print(multiply(5))    # 10  (uses b=2)
+print(multiply(5, 3)) # 15
+```
+
+---
+
+### 2.5 Modules
+
+Modules are Python files that organize related functions and variables.
+
+#### Creating a Custom Module
+
+* **math\_utils.py**
 
   ```python
-  def greet(name):
-      return f"Hello, {name}!"
-
-  print(greet("Alice"))  # Output: Hello, Alice!
-  ```
-
-* **Default parameters**
-
-  ```python
-  def multiply(a, b=2):
-      return a * b
-
-  print(multiply(5))  # Output: 10
-  ```
-
-#### Modules
-
-* **Creating a module** (`math_utils.py`)
-
-  ```python
-  def add(a, b):
-      return a + b
-
   PI = 3.14
-  ```
 
-* **Importing your module**
+  def square(x):
+      return x ** 2
+  ```
+* **main.py**
 
   ```python
   import math_utils
 
-  print(math_utils.add(2, 3))  # 5
   print(math_utils.PI)         # 3.14
+  print(math_utils.square(4))  # 16
   ```
 
 ---
 
 ### Hands-On Exercises for Chapter 2
 
-1. **Max-Number Function**
-   Write a function that takes two numbers and returns the larger one.
+1. Write a function that takes two numbers and returns the larger one.
+2. Create a list of user names and use a `for` loop to greet each one.
+3. Build a dictionary to store user info (name, age, email).
 
-   ```python
-   def max_number(a, b):
-       return a if a > b else b
-   ```
+**Example for Exercise 1**:
 
-2. **Loop Through a List**
-   Create a list of numbers and calculate their sum.
+```python
+def find_max(a, b):
+    return a if a > b else b
 
-   ```python
-   numbers = [10, 20, 30]
-   total = 0
-   for num in numbers:
-       total += num
-   print(total)  # 60
-   ```
-
-3. **User Dictionary**
-   Build a dictionary to store a user’s name, email, and age.
-
-   ```python
-   user = {
-       "name": "Alice",
-       "email": "alice@example.com",
-       "age": 25
-   }
-   ```
+print(find_max(10, 5))  # 10
+```
 
 ---
 
-### Common Errors & Solutions
+### Key Tips
 
-* **`NameError`**:
-  Ensure the variable is defined before you use it.
-* **`IndentationError`**:
-  Python relies on indentation—use 4 spaces per indent level.
-* **Type Mismatch**:
-  You can’t add a number to a string (e.g., `10 + "20"`). Convert types explicitly: `10 + int("20")`.
+* Use descriptive English variable names (e.g., `user_age` instead of `a`).
+* Factor repeated code into functions to avoid duplication.
+* Use `print()` or VS Code’s debugger for troubleshooting.
 
 ---
 
-### Best Practices
-
-* Use **descriptive variable names** (e.g., `user_age` instead of `a`).
-* Encapsulate logic in **functions** to keep code organized.
-* Comment your code with `#` to explain non-obvious parts.
-
----
-
-Up next: in Chapter 3, we’ll dive into the `discord.py` library and start building your bot! 🚀
+**Next Chapter:** Getting started with `discord.py` and building your first bot! 🚀

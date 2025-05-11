@@ -1,3 +1,5 @@
+# Table of Contents
+
 ### [**Chapter 1: Introduction and Environment Setup**](./saeson1.md)
 
 1. **What Is Programming?**

@@ -1,171 +1,184 @@
-## Chapter 4: Advanced Commands and Working with Embeds
+## Chapter 4: Building Your First Bot
 
 ---
 
-### 4.1 Creating Professional Embeds
+### 4.1 Initial Bot Setup
 
-Embeds let you send richly formatted, structured messages. You build them with the `Embed` class:
+#### 1. Create `main.py`
 
 ```python
-from discord import Embed
+import discord
+from discord.ext import commands
+import datetime
 
+intents = discord.Intents.default()
+intents.message_content = True
+
+bot = commands.Bot(
+    command_prefix="!", 
+    intents=intents,
+    help_command=None  # Disable the default help command
+)
+```
+
+#### 2. Add the `on_ready` Event
+
+```python
+@bot.event
+async def on_ready():
+    print(f"✅ {bot.user.name} is now online!")
+    print(f"Connected to {len(bot.guilds)} servers")
+    print(f"Startup time: {datetime.datetime.now()}")
+```
+
+---
+
+### 4.2 Basic Commands
+
+#### 1. The `!hello` Command
+
+```python
 @bot.command()
-async def info(ctx):
-    user = ctx.author
-    embed = Embed(
-        title="📊 User Information",
-        description=f"Hello, {user.mention}!",
-        color=0x00ff00  # HEX color code
-    )
-    embed.add_field(
-        name="Date Joined",
-        value=user.joined_at.strftime("%Y-%m-%d"),
-        inline=True
-    )
-    embed.add_field(
-        name="User ID",
-        value=user.id,
-        inline=True
-    )
-    embed.set_thumbnail(url=user.avatar.url)
+async def سلام(ctx):
+    await ctx.reply(f"Hello, {ctx.author.mention}! 😊")
+```
 
+#### 2. The `!time` Command
+
+```python
+@bot.command()
+async def time(ctx):
+    now = datetime.datetime.now().strftime("%H:%M:%S")
+    await ctx.send(f"🕒 Current time: **{now}**")
+```
+
+#### 3. The `!add` Command with Arguments
+
+```python
+@bot.command()
+async def add(ctx, num1: int, num2: int):
+    result = num1 + num2
+    await ctx.send(f"Result: `{num1} + {num2} = {result}`")
+```
+
+---
+
+### 4.3 Advanced Embeds
+
+#### The `!user` Command
+
+```python
+@bot.command()
+async def user(ctx, member: discord.Member = None):
+    member = member or ctx.author  # Default to the author if no member is mentioned
+    
+    embed = discord.Embed(
+        title=f"ℹ️ Information for {member.name}",
+        color=discord.Color.green()
+    )
+    embed.set_thumbnail(url=member.avatar.url)
+    embed.add_field(name="Tag", value=member.mention)
+    embed.add_field(name="ID", value=member.id)
+    embed.add_field(name="Joined At", value=member.joined_at.strftime("%Y/%m/%d"))
+    
     await ctx.send(embed=embed)
 ```
-
-* **Title & Description:** Give your embed a clear heading and a greeting.
-* **Fields:** Use `add_field` (or `add_fields`) to display key–value pairs; `inline=True` shows them side by side.
-* **Thumbnail:** Display the user's avatar with `set_thumbnail`.
-* **Color:** Choose a HEX color for the side strip.
-
----
-
-### 4.2 Sending and Receiving Files
-
-#### Uploading Attachments from Users
-
-```python
-@bot.command()
-async def upload(ctx):
-    if ctx.message.attachments:
-        # Save the first attachment to disk
-        await ctx.message.attachments[0].save("file.png")
-        await ctx.send("✅ File saved successfully!")
-    else:
-        await ctx.send("❌ Please attach a file!")
-```
-
-#### Sending Files from the Bot
-
-```python
-@bot.command()
-async def download(ctx):
-    with open("file.png", "rb") as f:
-        file = discord.File(f)
-        await ctx.send(file=file)
-```
-
-* **Attachments list:** `ctx.message.attachments` holds any files the user attached.
-* **discord.File:** Wrap a file object to send it back to the channel.
-
----
-
-### 4.3 Organizing Your Code with Cogs
-
-Cogs let you split your bot’s features into modular, reusable components.
-
-#### Steps to Create a Cog
-
-1. **Create `cogs/my_cog.py`:**
-
-   ```python
-   from discord.ext import commands
-
-   class MyCog(commands.Cog):
-       def __init__(self, bot):
-           self.bot = bot
-
-       @commands.command()
-       async def test(self, ctx):
-           await ctx.send("This is a test command!")
-
-   async def setup(bot):
-       await bot.add_cog(MyCog(bot))
-   ```
-
-2. **Load the Cog in `bot.py`:**
-
-   ```python
-   import asyncio
-
-   async def main():
-       await bot.load_extension("cogs.my_cog")
-       await bot.start("YOUR_TOKEN_HERE")
-
-   asyncio.run(main())
-   ```
-
-* **Separation of concerns:** Each Cog handles related commands and events.
-* **Dynamic loading:** You can load or unload Cogs at runtime.
 
 ---
 
 ### 4.4 Error Handling
 
-#### Permission Checks
+#### Missing Permissions
+
+```python
+@bot.event
+async def on_command_error(ctx, error):
+    if isinstance(error, commands.MissingPermissions):
+        await ctx.send("⛔ You do not have the required permissions!")
+```
+
+#### Missing Required Argument
+
+```python
+@add.error
+async def add_error(ctx, error):
+    if isinstance(error, commands.MissingRequiredArgument):
+        await ctx.send("⚠️ Please provide two numbers!\nExample: `!add 5 10`")
+```
+
+---
+
+### 4.5 Custom Help Command
 
 ```python
 @bot.command()
-async def purge(ctx, amount: int):
-    if not ctx.author.guild_permissions.manage_messages:
-        await ctx.send("❌ You don’t have permission to manage messages!")
-        return
-    await ctx.channel.purge(limit=amount + 1)
+async def help(ctx):
+    embed = discord.Embed(
+        title="📚 Command List",
+        description="Command prefix: `!`",
+        color=discord.Color.blue()
+    )
+    embed.add_field(
+        name="General", 
+        value="`hello` `time` `user [@mention]`",
+        inline=False
+    )
+    embed.add_field(
+        name="Math", 
+        value="`add <num1> <num2>`",
+        inline=False
+    )
+    
+    await ctx.send(embed=embed)
 ```
 
-#### Global Command Error Handler
+---
+
+### 4.6 Running the Bot
 
 ```python
-from discord.ext import commands
+# In Chapter 7 we'll cover using a .env file
+TOKEN = "YOUR_TOKEN_HERE"
 
-@bot.event
-async def on_command_error(ctx, error):
-    if isinstance(error, commands.MissingRequiredArgument):
-        await ctx.send("⚠️ You’re missing a required argument!")
-    else:
-        # Log or handle other errors
-        raise error
+if __name__ == "__main__":
+    bot.run(TOKEN)
 ```
-
-* **Check permissions:** Use `ctx.author.guild_permissions` or decorators like `@commands.has_permissions()`.
-* **Centralized errors:** `on_command_error` catches exceptions so your bot won’t crash.
 
 ---
 
 ### Hands-On Exercises for Chapter 4
 
-1. **`!level` Command:**
-   Create an embed that visually displays the user’s level (e.g., progress bar or icon).
-2. **`!avatar` Command:**
-   Show a larger version of the user’s avatar inside an embed.
-3. **Modularize with Cogs:**
-   Move all your commands into a new Cog file and load it dynamically.
+1. Create a `!coin` command that flips a coin and returns heads or tails.
+2. Implement a `!purge` command that deletes a specified number of messages (requires Manage Messages permission).
+3. Set up a welcome message event so the bot greets new members when they join:
+
+   ```python
+   @bot.event
+   async def on_member_join(member):
+       channel = member.guild.system_channel
+       await channel.send(f"🎉 Welcome to the server, {member.mention}!")
+   ```
 
 ---
 
-### Common Pitfalls
+### Common Issues & Solutions
 
-* **Embed not showing:** Be sure to call `ctx.send(embed=embed)`, not `ctx.send(embed)`.
-* **File Not Found:** Double-check your file paths when opening or saving files.
-* **Cog fails to load:** Verify the dotted path in `load_extension()` matches your folder structure.
+* **Commands Aren’t Running**
 
----
+  * Ensure `intents.message_content = True` is set.
+  * Restart the bot after changes (`Ctrl+C` and `python main.py`).
+* **Bot Can’t Mention Members**
 
-### Pro Tips
-
-* **Use HEX for colors:** e.g., `0x3498db` for a nice blue.
-* **Control layout:** `inline=False` forces fields onto separate lines.
-* **Restrict commands:** Decorators like `@commands.has_permissions(kick_members=True)` help enforce security.
+  * In the Developer Portal, enable the **Server Members Intent** for your bot.
 
 ---
 
-Up next in Chapter 5: **Slash Commands** and **Database Integration**! 🚀
+### Key Tips
+
+* Use `ctx.reply()` instead of `ctx.send()` when you want to mention the user.
+* Accept `discord.Member` parameters to automatically convert mentions into Member objects.
+* Handle errors with `@bot.event` and `on_command_error` for better user feedback.
+
+---
+
+**Next Chapter:** Working with Embeds, file attachments, and more! 🚀

@@ -2,166 +2,198 @@
 
 ---
 
-### 3.1 Installing and Setting Up the Library
+### 3.1 Introduction to `discord.py`
 
-#### Installing `discord.py`
+`discord.py` is a powerful, flexible Python library for building Discord bots. It provides simple tools to interact with the Discord API.
 
-Open your terminal or CMD and run:
+#### Why `discord.py`?
+
+* **Beginner-Friendly:** Clean, readable syntax.
+* **Fully Asynchronous:** Efficient handling of concurrent tasks.
+* **Excellent Documentation:** The [official docs](https://discordpy.readthedocs.io/) include practical examples.
+
+---
+
+### 3.2 Installation and Setup
+
+#### Installing the Library
+
+In your terminal or CMD, run:
 
 ```bash
 pip install discord.py
 ```
 
-> ⚠️ **Note:** If you encounter permission errors, try:
->
-> ```bash
-> pip install discord.py --user
-> ```
->
-> or on Linux/macOS:
->
-> ```bash
-> sudo pip install discord.py
-> ```
+#### Alternative Forks
+
+* **nextcord:** A more up-to-date fork of `discord.py` with regular maintenance.
+
+  ```bash
+  pip install nextcord
+  ```
 
 ---
 
-### 3.2 Core Structure of a Python Discord Bot
+### 3.3 Core Bot Structure
 
-#### Key Concepts
+#### 1. Importing Modules
 
-* **`Bot`**: The core class that manages your bot’s behavior and commands.
-* **`Intents`**: Specify which events your bot can receive from Discord (e.g., message events).
-* **`commands`**: The module that lets you define prefixed commands (like `!ping`).
+```python
+import discord
+from discord.ext import commands
+```
+
+#### 2. Configuring Intents
+
+Intents determine which Discord events your bot can receive.
+
+```python
+intents = discord.Intents.default()
+intents.message_content = True  # Grants access to message content
+```
+
+#### 3. Creating the Bot Instance
+
+```python
+bot = commands.Bot(
+    command_prefix='!',  # Command prefix (e.g., !ping)
+    intents=intents
+)
+```
 
 ---
 
-### 3.3 Writing the Initial Code
+### 3.4 Events
 
-#### Step 1: Create `bot.py`
+Events let your bot react to things like going online or receiving messages.
+
+#### The `on_ready` Event
+
+Fires when the bot has successfully connected to Discord.
+
+```python
+@bot.event
+async def on_ready():
+    print(f'✅ {bot.user.name} is now online!')
+```
+
+#### The `on_message` Event
+
+Triggers each time a message is sent in any channel the bot can see.
+
+```python
+@bot.event
+async def on_message(message):
+    if message.author == bot.user:  # Ignore the bot’s own messages
+        return
+
+    if message.content == 'hello':
+        await message.channel.send('Hello! How are you? 😊')
+    
+    await bot.process_commands(message)  # Allows command processing
+```
+
+---
+
+### 3.5 Simple Commands
+
+Use the `@commands.command()` decorator to define custom commands.
+
+#### The `ping` Command
+
+```python
+@bot.command()
+async def ping(ctx):
+    latency = round(bot.latency * 1000)  # Latency in ms
+    await ctx.reply(f'🏓 Pong! Latency: {latency}ms')
+```
+
+#### Commands with Parameters
+
+```python
+@bot.command()
+async def say(ctx, *, text):
+    await ctx.send(text)  # Usage: !say Hello World
+```
+
+---
+
+### 3.6 Working with Embeds
+
+Embeds are richly formatted message blocks perfect for displaying information.
+
+#### Sending an Embed
+
+```python
+@bot.command()
+async def info(ctx):
+    embed = discord.Embed(
+        title="Embed Title",
+        description="General description",
+        color=discord.Color.blue()
+    )
+    embed.add_field(name="Field 1", value="Value 1", inline=False)
+    embed.set_thumbnail(url=ctx.author.avatar.url)
+    
+    await ctx.send(embed=embed)
+```
+
+---
+
+### Complete Example Bot
 
 ```python
 import discord
 from discord.ext import commands
 
-# Enable access to message content
 intents = discord.Intents.default()
 intents.message_content = True
 
-# Create the bot instance with the ! prefix
 bot = commands.Bot(command_prefix='!', intents=intents)
 
-# Event: Bot is ready
 @bot.event
 async def on_ready():
-    print(f'✅ Bot {bot.user.name} is now online!')
+    print(f'✅ {bot.user} is now online!')
 
-# Simple ping command
 @bot.command()
 async def ping(ctx):
-    latency = round(bot.latency * 1000)
-    await ctx.send(f'🏓 Pong! Latency: {latency}ms')
+    await ctx.reply(f'🏓 Pong! Latency: {round(bot.latency * 1000)}ms')
 
-# Run the bot with your token
 bot.run('YOUR_TOKEN_HERE')
 ```
-
-#### Step 2: Insert Your Token
-
-Replace `'YOUR_TOKEN_HERE'` with the token you copied from the [Discord Developer Portal](https://discord.com/developers/applications).
-
----
-
-### 3.4 Enabling Intents in the Developer Portal
-
-1. Go to the Discord Developer Portal and select your application.
-2. Navigate to **Bot** in the left sidebar.
-3. Under **Privileged Gateway Intents**, enable:
-
-   * **Presence Intent** (optional)
-   * **Server Members Intent** (optional)
-   * **Message Content Intent** (required to read message contents)
-
----
-
-### 3.5 Running and Testing Your Bot
-
-1. Run your bot:
-
-   ```bash
-   python bot.py
-   ```
-2. In Discord, type `!ping`.
-3. If everything is set up correctly, the bot will reply with its latency measurement.
-
----
-
-### 3.6 Adding More Commands
-
-#### `!hello` Command
-
-```python
-@bot.command()
-async def hello(ctx):
-    await ctx.send(f'Hello {ctx.author.mention}! 😊')
-```
-
-#### `!time` Command
-
-```python
-from datetime import datetime
-
-@bot.command()
-async def time(ctx):
-    now = datetime.now().strftime("%H:%M:%S")
-    await ctx.send(f'⏰ Current time: {now}')
-```
-
----
-
-### Common Issues & Solutions
-
-* **Bot doesn’t respond to messages**
-
-  * Ensure `intents.message_content = True` in your code and that the Intent is enabled in the portal.
-* **`Missing Privileged Intents` error**
-
-  * Double-check you’ve enabled the required Intents in the Developer Portal.
-* **Bot won’t go online**
-
-  * Verify your token is correct and your internet connection is active.
 
 ---
 
 ### Hands-On Exercises for Chapter 3
 
-1. Create a `!user` command that displays the author’s name and ID:
-
-   ```python
-   @bot.command()
-   async def user(ctx):
-       user = ctx.author
-       await ctx.send(f'👤 Name: {user.name}\n🆔 ID: {user.id}')
-   ```
-2. Create a `!coin` command that randomly returns heads or tails:
-
-   ```python
-   import random
-
-   @bot.command()
-   async def coin(ctx):
-       result = random.choice(['Heads', 'Tails'])
-       await ctx.send(f'🪙 You got **{result}**!')
-   ```
+1. Create a command `!time` that sends back the current time.
+2. Design an embed that displays the user’s name, ID, and join date.
+3. Build a command `!add 5 10` that calculates the sum of two numbers.
 
 ---
 
-### Key Points
+### Common Issues
 
-* **`ctx` (Context):** Provides details about the command’s invocation (author, channel, guild).
-* **Modularize commands** so you can later organize them into Cogs.
-* **Keep your token secure**—we’ll use a `.env` file to hide it in Chapter 7.
+* **Bot Doesn’t Respond to Messages:**
+
+  * Ensure `intents.message_content = True`.
+  * Use the correct command prefix (`!`).
+* **`Missing Intents` Error:**
+
+  * In the [Discord Developer Portal](https://discord.com/developers/applications), enable the required intents.
 
 ---
 
-Up next, in Chapter 4 you’ll learn **advanced command handling** and how to work with **Embeds**! 🚀
+### Key Tips
+
+* **Never** expose your bot token in public code (we’ll cover `.env` in later chapters).
+* For more complex bots, organize commands using Cogs (see Chapter 6).
+* Keep your library up to date before running:
+
+  ```bash
+  pip install --upgrade discord.py
+  ```
+
+---
+
+**Next Chapter:** Building your first advanced bot commands! 🚀
