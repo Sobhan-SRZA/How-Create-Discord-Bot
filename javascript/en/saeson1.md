@@ -39,7 +39,15 @@ Before you begin, make sure you have the following tools installed and ready:
 3. In the left sidebar, select **Bot**, then click **Add Bot**.
 4. Copy the bot’s **Token** and keep it somewhere safe—it’s like your bot’s password!
 
-![Image: Steps to Create a Discord Bot](https://example.com/discord-bot-creation-steps.png)
+![Image: Steps to Create a Discord Bot](../../images/creating-discord-bot-step-1.png)
+![Image: Steps to Create a Discord Bot](../../images/creating-discord-bot-step-2.png)
+![Image: Steps to Create a Discord Bot](../../images/creating-discord-bot-step-3.png)
+![Image: Steps to Create a Discord Bot](../../images/creating-discord-bot-step-4.png)
+![Image: Steps to Create a Discord Bot](../../images/creating-discord-bot-step-5.png)
+![Image: Steps to Create a Discord Bot](../../images/creating-discord-bot-step-6.png)
+![Image: Steps to Create a Discord Bot](../../images/creating-discord-bot-step-7.png)
+![Image: Steps to Create a Discord Bot](../../images/creating-discord-bot-step-8.png)
+![Image: Steps to Create a Discord Bot](../../images/creating-discord-bot-step-9.png)
 
 ---
 

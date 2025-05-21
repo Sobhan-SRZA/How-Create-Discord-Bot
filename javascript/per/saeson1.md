@@ -30,7 +30,15 @@
 3. به بخش **Bot** در منوی سمت چپ بروید و روی **Add Bot** کلیک کنید.  
 4. **توکن (Token)** ربات را کپی و در جای امن نگه دارید (این توکن مانند رمز عبور ربات است!).  
 
-![تصویر: مراحل ساخت بات در دیسکورد](https://example.com/discord-bot-creation-steps.png)  
+![تصویر: مراحل ساخت بات در دیسکورد](../../images/creating-discord-bot-step-1.png)  
+![تصویر: مراحل ساخت بات در دیسکورد](../../images/creating-discord-bot-step-2.png)  
+![تصویر: مراحل ساخت بات در دیسکورد](../../images/creating-discord-bot-step-3.png)  
+![تصویر: مراحل ساخت بات در دیسکورد](../../images/creating-discord-bot-step-4.png)  
+![تصویر: مراحل ساخت بات در دیسکورد](../../images/creating-discord-bot-step-5.png)  
+![تصویر: مراحل ساخت بات در دیسکورد](../../images/creating-discord-bot-step-6.png)  
+![تصویر: مراحل ساخت بات در دیسکورد](../../images/creating-discord-bot-step-7.png)  
+![تصویر: مراحل ساخت بات در دیسکورد](../../images/creating-discord-bot-step-8.png)  
+![تصویر: مراحل ساخت بات در دیسکورد](../../images/creating-discord-bot-step-9.png)  
 
 ---
 
