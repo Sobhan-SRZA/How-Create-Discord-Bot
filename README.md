@@ -29,7 +29,7 @@ In this project, we will teach you how to create a Discord bot professionally us
 
 Before you begin, make sure you have:
 
-* Adequate knowledge of [JavaScript](/javascript/en/README.md) or [Python](/python/en/README.md).
+* Adequate knowledge of [JavaScript](https://eloquentjavascript.net/) or [Python](https://cfm.ehu.es/ricardo/docs/python/Learning_Python.pdf).
 * A code editor such as Notepad or [Visual Studio Code](https://code.visualstudio.com/download).
 * A [Discord account](https://discord.com/login).
 * A [Discord bot application](https://discord.com/developers).
@@ -48,19 +48,19 @@ Before you begin, make sure you have:
 
 سلام و درود بر شما عزیزان،
 
-در این پروژه قصد داریم نحوه ساخت ربات دیسکورد به‌ صورت حرفه‌ای را با **JavaScript** و **Python** به شما آموزش دهیم.
+در این مقاله قصد داریم نحوه ساخت ربات دیسکورد به‌ صورت حرفه‌ای را با **JavaScript** و **Python** به شما آموزش دهیم.
 
 ### پیش‌ نیازها
 
 برای شروع مطمئن شوید که:
 
-* دانش کافی در [JavaScript](/javascript/per/README.md) یا [Python](/python/en/README.md) دارید.
+* دانش کافی در [JavaScript](https://eloquentjavascript.net/) یا [Python](https://cfm.ehu.es/ricardo/docs/python/Learning_Python.pdf) دارید.
 * یک ویرایشگر کد مانند Notepad یا [Visual Studio Code](https://code.visualstudio.com/download) نصب‌شده دارید.
 * حساب کاربری [Discord](https://discord.com/login) دارید.
-* یک اپلیکیشن ربات در [سرویس توسعه‌دهندگان Discord](https://discord.com/developers) ساخته‌اید.
+* یک اپلیکیشن ربات در [سرویس توسعه‌ دهندگان Discord](https://discord.com/developers) ساخته‌اید.
 
 <details>
-  <summary>هنگامی که تمام پیش‌ نیازها را دارید، زبان برنامه‌ نویسی خود را انتخاب کنید و آموزش ساخت ربات دیسکورد را شروع کنید. 📌</summary>
+  <summary>هنگامی که تمام پیش‌ نیاز ها را دارید، زبان برنامه‌ نویسی خود را انتخاب کنید و آموزش ساخت ربات دیسکورد را شروع کنید. 📌</summary>
 
 * [JavaScript](/javascript/per/README.md)
 * [Python](/python/per/README.md)

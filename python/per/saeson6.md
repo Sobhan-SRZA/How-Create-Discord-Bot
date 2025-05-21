@@ -2,18 +2,19 @@
 
 ---
 
-### **۶.۱ معرفی Cog (ماژولهای سازماندهی کد)**  
-Cogها کلاسهایی هستند که دستورات، رویدادها و تنظیمات ربات را **مدولار** میکنند و مدیریت کد را آسانتر میکنند.  
+### **۶.۱ معرفی Cog (ماژول های سازماندهی کد)**  
+Cog ها کلاس هایی هستند که دستورات، رویداد ها و تنظیمات ربات را **مدولار** می کنند و مدیریت کد را آسانتر می کنند.  
 
 #### **مزایای استفاده از Cog**:  
-- کد تمیز و قابل نگهداری  
-- امکان بارگذاری/لغو بارگذاری دستورات بدون ریاستارت ربات  
-- مدیریت خطاها بهصورت جداگانه  
+- کد تمیز و قابل نگه داری  
+- امکان بارگذاری/لغو بارگذاری دستورات بدون ری استارت ربات  
+- مدیریت خطا ها به صورت جداگانه  
 
 ---
 
 ### **۶.۲ ساخت اولین Cog**  
 #### **۱. ساخت فایل `cogs/moderate.py`**:  
+
 ```python
 from discord.ext import commands
 
@@ -21,7 +22,7 @@ class Moderate(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    # دستور پاک کردن پیامها
+    # دستور پاک کردن پیام ها
     @commands.command()
     @commands.has_permissions(manage_messages=True)
     async def پاککن(self, ctx, limit: int = 10):
@@ -32,7 +33,7 @@ class Moderate(commands.Cog):
     @پاککن.error
     async def پاککن_خطا(self, ctx, error):
         if isinstance(error, commands.MissingPermissions):
-            await ctx.send("⛔ شما دسترسی مدیریت پیامها را ندارید!")
+            await ctx.send("⛔ شما دسترسی مدیریت پیام ها را ندارید!")
 
 # تابع ضروری برای لود Cog
 async def setup(bot):
@@ -40,6 +41,7 @@ async def setup(bot):
 ```
 
 #### **۲. لود کردن Cog در فایل اصلی**:  
+
 ```python
 # در main.py
 async def main():
@@ -52,7 +54,8 @@ if __name__ == "__main__":
 ---
 
 ### **۶.۳ دستورات پیشرفته با Decoratorها**  
-#### **۱. دسترسیهای کاربر (Permissions)**:  
+#### **۱. دسترسی های کاربر (Permissions)**:  
+
 ```python
 @commands.has_role("Admin")  # نیاز به نقش خاص
 @commands.has_permissions(kick_members=True)  # نیاز به دسترسی
@@ -60,6 +63,7 @@ if __name__ == "__main__":
 ```
 
 #### **۲. محدودیت استفاده از دستورات**:  
+
 ```python
 @commands.cooldown(rate=1, per=30, type=commands.BucketType.user)  # 30 ثانیه کولدان
 async def جوایز(ctx):
@@ -67,6 +71,7 @@ async def جوایز(ctx):
 ```
 
 #### **۳. دستورات هیبریدی (Slash + Prefix)**:  
+
 ```python
 from discord import app_commands
 
@@ -79,8 +84,8 @@ async def بن(ctx, user: discord.Member):
 
 ---
 
-### **۶.۴ مدیریت خطاهای سراسری**  
-#### **خطاهای عمومی در Cog**:  
+### **۶.۴ مدیریت خطا های سراسری**  
+#### **خطا های عمومی در Cog**:  
 ```python
 class Moderate(commands.Cog):
     #...
@@ -93,7 +98,8 @@ class Moderate(commands.Cog):
 
 ---
 
-### **۶.۵ ساخت Help Command سفارشی**  
+### **۶.۵ ساخت Help Command سفارشی** 
+
 ```python
 class Help(commands.Cog):
     def __init__(self, bot):
@@ -118,10 +124,10 @@ class Help(commands.Cog):
 ---
 
 ### **مشکلات رایج**  
-- **Cog لود نمیشود**:  
+- **Cog لود نمی شود**:  
   - مطمئن شوید مسیر فایل (`cogs/moderate.py`) صحیح است.  
   - از `await bot.load_extension()` استفاده کنید.  
-- **دستورات نمایش داده نمیشوند**:  
+- **دستورات نمایش داده نمی شوند**:  
   - دکوراتور `@commands.command()` را فراموش نکنید.  
 
 ---
@@ -129,7 +135,7 @@ class Help(commands.Cog):
 ### **نکات طلایی**  
 - هر Cog را در یک فایل جداگانه ذخیره کنید.  
 - برای نامگذاری دستورات از **فارسی** یا **انگلیسی یکدست** استفاده کنید.  
-- از `@commands.check()` برای اعتبارسنجیهای پیچیده استفاده کنید.  
+- از `@commands.check()` برای اعتبارسنجی های پیچیده استفاده کنید.  
 
 ---
 

@@ -121,7 +121,7 @@
 ### **Appendices and Additional Resources**
 
 * List of useful discord.js commands.
-* Links to official discord.js documentation.
+* Links to official [discord.js](https://discord.js.org/#/) documentation.
 * Support communities (Discord, Stack Overflow).
 
 ---
