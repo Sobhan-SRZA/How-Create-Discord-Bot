@@ -1,10 +1,12 @@
-**فصل ۶: مفاهیم پیشرفتهتر**  
+**فصل ۶: مفاهیم پیشرفته تر**  
+
 ---
 
-### **۶.۱ مدیریت خطاها (Error Handling)**  
-هر ربات ممکن است با خطا مواجه شود! مدیریت خطا باعث میشود ربات شما به جای کرش کردن، به کار خود ادامه دهد.  
+### **۶.۱ مدیریت خطا ها (Error Handling)**  
+هر ربات ممکن است با خطا مواجه شود! مدیریت خطا باعث می شود ربات شما به جای کرش کردن، به کار خود ادامه دهد.  
 
 #### **استفاده از `try/catch`**  
+
 ```javascript
 client.on('messageCreate', async (message) => {
   try {
@@ -17,8 +19,9 @@ client.on('messageCreate', async (message) => {
 });
 ```
 
-#### **لاگگیری از خطاها**  
-- خطاها را در فایل ذخیره کنید:  
+#### **لاگ گیری از خطا ها**  
+- خطا ها را در فایل ذخیره کنید:  
+
   ```javascript
   const fs = require('fs');
   fs.appendFileSync('errors.log', `${new Date().toISOString()}: ${error.stack}\n`);
@@ -31,6 +34,7 @@ client.on('messageCreate', async (message) => {
 
 #### **ثبت دستورات اسلشی**  
 ۱. **تعریف دستور در کد**:  
+
    ```javascript
    const { SlashCommandBuilder } = require('discord.js');
 
@@ -46,6 +50,7 @@ client.on('messageCreate', async (message) => {
 
 ۲. **ثبت دستورات در دیسکورد**:  
    - برای **یک سرور خاص** (سریعتر):  
+
      ```javascript
      const rest = new REST().setToken(process.env.TOKEN);
      const commands = [پینگCommand.data.toJSON()];
@@ -54,7 +59,7 @@ client.on('messageCreate', async (message) => {
        { body: commands }
      );
      ```
-   - برای **همه سرورها** (Global):  
+   - برای **همه سرور ها** (Global):  
      ```javascript
      await rest.put(Routes.applicationCommands(CLIENT_ID), { body: commands });
      ```
@@ -62,9 +67,10 @@ client.on('messageCreate', async (message) => {
 ---
 
 ### **۶.۳ کار با دیتابیس**  
-برای ذخیره دادههای پایدار (مثل XP کاربران) نیاز به دیتابیس دارید.  
+برای ذخیره داده های پایدار (مثل XP کاربران) نیاز به دیتابیس دارید.  
 
-#### **استفاده از JSON فایل (ساده)**  
+#### **استفاده از JSON فایل (ساده)** 
+
 ```javascript
 const fs = require('fs');
 
@@ -78,13 +84,14 @@ db[message.author.id] = { xp: 100, level: 2 };
 fs.writeFileSync('database.json', JSON.stringify(db));
 ```
 
-#### **استفاده از SQLite (پیشرفتهتر)**  
+#### **استفاده از SQLite (پیشرفته تر)**  
 ۱. نصب پکیج:  
    ```bash
    npm install better-sqlite3
    ```
 
 ۲. اتصال به دیتابیس:  
+
    ```javascript
    const Database = require('better-sqlite3');
    const db = new Database('database.sqlite');
@@ -109,6 +116,7 @@ fs.writeFileSync('database.json', JSON.stringify(db));
 
 ### **۶.۴ سیستم لول (XP System)**  
 **مثال عملی با JSON**:  
+
 ```javascript
 client.on('messageCreate', (message) => {
   if (message.author.bot) return;
@@ -132,23 +140,23 @@ client.on('messageCreate', (message) => {
 
 ### **تمرین عملی فصل ۶**  
 ۱. دستور اسلشی `/ساعت` بسازید که زمان فعلی را برگرداند.  
-۲. با SQLite جدولی برای نظرسنجیها ایجاد کنید و نتایج را ذخیره کنید.  
+۲. با SQLite جدولی برای نظرسنجی ها ایجاد کنید و نتایج را ذخیره کنید.  
 ۳. سیستمی طراحی کنید که با هر پیام کاربر، شانس تصادفی جایزه بدهد!  
 
 ---
 
-### **مشکلات رایج و راهحلها**  
-- **دستورات اسلشی نمایش داده نمیشوند**:  
+### **مشکلات رایج و راه حل ها**  
+- **دستورات اسلشی نمایش داده نمی شوند**:  
   - ۲۴-۴۸ ساعت صبر کنید (برای دستورات Global).  
   - از `CLIENT_ID` و `GUILD_ID` معتبر استفاده کنید.  
 - **خطای دسترسی دیتابیس**:  
-  - مطمئن شوید فایلهای JSON/SQLite قابل نوشتن هستند.  
-  - از مسیرهای نسبی (مثل `./database.json`) استفاده کنید.  
+  - مطمئن شوید فایل های JSON/SQLite قابل نوشتن هستند.  
+  - از مسیر های نسبی (مثل `./database.json`) استفاده کنید.  
 
 ---
 
 ### **نکات کلیدی**  
-- برای محیط Production از دیتابیسهای قویتر مثل **PostgreSQL** یا **MongoDB** استفاده کنید.  
+- برای محیط Production از دیتابیس های قویتر مثل **PostgreSQL** یا **MongoDB** استفاده کنید.  
 - همیشه قبل از تعامل با دیتابیس، ورودی کاربر را **اعتبارسنجی** کنید (برای جلوگیری از حمله تزریق SQL).  
 - از **.env** برای ذخیره توکن و اطلاعات حساس استفاده کنید (فصل ۷).  
 
